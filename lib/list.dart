@@ -4,7 +4,7 @@ import 'main.dart';
 
 class EveryDaySoftState extends HookConsumerWidget {
   var count = 1;
-  var e = MyApp();
+  var myApp = MyApp();
 
   Widget build(BuildContext context, WidgetRef ref) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -34,9 +34,9 @@ class EveryDaySoftState extends HookConsumerWidget {
                       return Container(
                         child: GestureDetector(
                           onTap: () {
-                            ref.watch(e.counterStateProvider);
+                            ref.watch(myApp.counterStateProvider);
                             count = ref
-                                .read(e.counterStateProvider.state)
+                                .read(myApp.counterStateProvider.state)
                                 .state = count + 1;
                           },
                           child: Container(
