@@ -32,6 +32,7 @@ class EveryDaySoftState extends HookConsumerWidget {
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       return Container(
+                        color: Colors.grey,
                         child: GestureDetector(
                           onTap: () {
                             ref.watch(myApp.counterStateProvider);
@@ -42,6 +43,11 @@ class EveryDaySoftState extends HookConsumerWidget {
                           child: Container(
                             height: 150,
                             decoration: new BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(40),
+                                    topLeft: Radius.circular(40),
+                                    bottomLeft: Radius.circular(index+1 == count ? count * 180 > screenHeight ? 0 : 40 : 40),
+                                    bottomRight: Radius.circular(index+1 == count ?count * 180 > screenHeight ? 0 :  40 : 40)),
                               color: (index % 2 == 0)
                                   ? Colors.white
                                   : Colors.yellow,
